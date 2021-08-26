@@ -18,8 +18,9 @@ pipeline {
 			agent any
 			steps {
 				echo 'Testing time'
+				sh 'docker run --name flask --publish 9090:9090 $registry:$BUILD_NUMBER'
 				sh 'docker ps'
-				sh 'docker exec -it $registry:$BUILD_NUMBER curl localhost:9090'
+				sh 'docker exec -it flask curl localhost:9090'
 				sh 'curl localhost:9090'
 				echo 'Done testing'
 			}
