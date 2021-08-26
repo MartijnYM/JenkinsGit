@@ -1,7 +1,7 @@
 pipeline {
     environment {
         registry = 'israelaminu/ml_model'
-        registryCredential = 'dockerhub_id'
+        registryCredential = 'martijnym'
         dockerImage = ''
     }
     agent any
@@ -11,6 +11,16 @@ pipeline {
             steps {
                 script {
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                }
+            }
+        }
+        stage('Push Docker Image to Registry') {
+            agent any
+            steps {
+                script {
+                    docker.withRegistry('',registryCredential) {
+                        dockerImage.push()
+                    }
                 }
             }
         }
