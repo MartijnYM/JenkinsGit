@@ -18,6 +18,7 @@ pipeline {
 			agent any
 			steps {
 				echo 'Testing time'
+				sh 'docker ps'
 				sh 'docker exec -it $registry:$BUILD_NUMBER curl localhost:9090'
 				sh 'curl localhost:9090'
 				echo 'Done testing'
