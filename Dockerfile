@@ -32,7 +32,7 @@ COPY . .
 WORKDIR /src/app
 
 # set app port
-EXPOSE 9091
+EXPOSE 9090
 
 ENTRYPOINT [ "python" ] 
 
