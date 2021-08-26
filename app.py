@@ -61,4 +61,4 @@ def get_sentiment():
 
 
 if __name__ == "__main__":
-    flask_app.run(port=9090, debug=True)
+    flask_app.run(port=9091, debug=True)
