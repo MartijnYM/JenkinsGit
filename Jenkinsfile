@@ -18,7 +18,7 @@ pipeline {
 			agent any
 			steps {
 				echo 'Testing time'
-				sh 'curl localhost:9091'
+				sh 'curl host.docker.internal:9091'
 				echo 'Done testing'
 			}
 		}
