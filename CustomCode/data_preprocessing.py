@@ -1,6 +1,7 @@
 import re
-from nltk.corpus import stopwords
-
+import nltk
+nltk.download('stopwords')
+stop = stopwords.words('english')
 
 def clean_tweets(text):
     remove_links = ' '.join(re.sub(r"http(s)?://((\w+).?){1,}", " ",text).split())
@@ -14,7 +15,6 @@ def clean_tweets(text):
     return text
 
 
-stop = stopwords.words('english')
 
 def tokenizer(text):
     text = re.sub('<[^>]*>', '', text)
