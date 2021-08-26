@@ -14,6 +14,16 @@ pipeline {
                 }
             }
         }
+		stage('Testing ML') {
+			agent any
+			setps {
+				script {
+					echo 'Testing time'
+					sh curl localhost:9091
+					echo 'Done testing'
+				}
+			}
+		}
         stage('Remove Unused docker image') {
             steps {
                 sh "docker rmi $registry:$BUILD_NUMBER"
