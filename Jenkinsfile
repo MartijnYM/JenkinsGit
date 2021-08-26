@@ -19,7 +19,7 @@ pipeline {
 			setps {
 				script {
 					echo 'Testing time'
-					sh curl localhost:9091
+					sh 'curl localhost:9091'
 					echo 'Done testing'
 				}
 			}
